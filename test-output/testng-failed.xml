@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="webdriver.Topic02_check_enviroment_testNG">
+        <methods>
+          <include name="TC_02"/>
+          <include name="TC_01"/>
+          <include name="TC_03"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- webdriver.Topic02_check_enviroment_testNG -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
