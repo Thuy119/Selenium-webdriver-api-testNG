@@ -83,11 +83,40 @@ public class Topic03_Xpath_CSS_Part1 {
 		String errorMessage = driver.findElement(By.xpath("//li[@class='error-msg']//span")).getText();
 		Assert.assertEquals(errorMessage, "Invalid login or password.");
 	}
-	
-	
+
 	@Test
-	public void TC_05() {
-	
+	public void TC_05_Login_With_Valid_Email_And_Invalid_Password() {
+		driver.get("http://live.demoguru99.com/index.php/customer/account/login/");
+		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("thuy@mailinator.com");
+		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("123456");
+		driver.findElement(By.xpath("//button[@id='send2']")).click();
+		
+		//Cach1: text ngắn, ko có kí tự xuống dòng, tab hoặc khoảng trắng ở đầu cuối chuỗi
+		String myDashboardText = driver.findElement(By.xpath("//div[@class='page-title']/h1")).getText();
+		Assert.assertEquals(myDashboardText, "My Dashboard");
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']/h1[text()='My Dashboard')]")).isDisplayed());
+		
+		
+		//Cach2: tương đối:  text dài,  có kí tự xuống dòng, tab hoặc khoảng trắng ở đầu cuối chuỗi
+		
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']/h1[contains(text(),'My Dashboard')]")).isDisplayed());
+		
+		
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='welcome-msg']//strong")).getText(), "Hello, Thuy Thanh Ng!");
+		
+		
+		//Tuong doi:
+		String contactInfomationText =  driver.findElement(By.xpath("//div[@class='col-1']//div[@class='box-content']//p")).getText();
+		
+		Assert.assertTrue(contactInfomationText.contains("Thuy Thanh Ng"));
+		Assert.assertTrue(contactInfomationText.contains("thuy@mailinator.com"));
+		
+	}
+
+	@Test
+	public void TC_05_Register_To_System() {
+
 	}
 
 	@AfterClass
