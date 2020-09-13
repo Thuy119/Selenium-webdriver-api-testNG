@@ -83,6 +83,12 @@ public class Topic03_Xpath_CSS_Part1 {
 		String errorMessage = driver.findElement(By.xpath("//li[@class='error-msg']//span")).getText();
 		Assert.assertEquals(errorMessage, "Invalid login or password.");
 	}
+	
+	
+	@Test
+	public void TC_05() {
+	
+	}
 
 	@AfterClass
 	public void afterClass() {
