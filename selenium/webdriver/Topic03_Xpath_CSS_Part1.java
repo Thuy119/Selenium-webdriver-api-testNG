@@ -91,33 +91,66 @@ public class Topic03_Xpath_CSS_Part1 {
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("thuy@mailinator.com");
 		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("123456");
 		driver.findElement(By.xpath("//button[@id='send2']")).click();
+	
 		
-		//Cach1: text ngắn, ko có kí tự xuống dòng, tab hoặc khoảng trắng ở đầu cuối chuỗi
-		String myDashboardText = driver.findElement(By.xpath("//div[@class='page-title']/h1")).getText();
-		Assert.assertEquals(myDashboardText, "My Dashboard");
-		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']/h1[text()='My Dashboard')]")).isDisplayed());
+
+		String myDashboardText = driver.findElement(By.xpath("//div[@class='page-title']//h1")).getText();
+		Assert.assertEquals(myDashboardText, "MY DASHBOARD");
 		
+		String contactInfomation = driver.findElement(By.xpath("//div[@class='welcome-msg']//strong")).getText();
+		Assert.assertEquals(contactInfomation, "Hello, Thuy Thanh Ng!");
 		
-		//Cach2: tương đối:  text dài,  có kí tự xuống dòng, tab hoặc khoảng trắng ở đầu cuối chuỗi
-		
-		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']/h1[contains(text(),'My Dashboard')]")).isDisplayed());
-		
-		
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='welcome-msg']//strong")).getText(), "Hello, Thuy Thanh Ng!");
-		
-		
-		//Tuong doi:
-		String contactInfomationText =  driver.findElement(By.xpath("//div[@class='col-1']//div[@class='box-content']//p")).getText();
+		String contactInfomationText = driver.findElement(By.xpath("//div[@class='col-1']//div[@class='box-content']//p")).getText();
+		//Assert.assertEquals(contactInfomationText, "Thuy Thanh Ng");
+		//Assert.assertEquals(contactInfomationText, "thuy@mailinator.com");//
 		
 		Assert.assertTrue(contactInfomationText.contains("Thuy Thanh Ng"));
 		Assert.assertTrue(contactInfomationText.contains("thuy@mailinator.com"));
 		
+		
+		//driver.findElement(By.xpath("//a[@class='skip-link skip-account skip-active']//span[@class='label']")).click();
+		driver.findElement(By.xpath("//span[@class='label' and text()='Account']")).click();
+		
+		driver.findElement(By.xpath("//a[@title='Log Out']")).click();
+		
+		
+		
+		
+
+		//Cach1: text ngắn, ko có kí tự xuống dòng, tab hoặc khoảng trắng ở đầu cuối chuỗi
+		//Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']/h1[text()='My Dashboard')]")).isDisplayed());
+		
+		
+		//Cach2: tương đối:  text dài,  có kí tự xuống dòng, tab hoặc khoảng trắng ở đầu cuối chuỗi
+		
+		//Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']/h1[contains(text(),'My Dashboard')]")).isDisplayed());
+		
+		
+		//Assert.assertEquals(driver.findElement(By.xpath("//div[@class='welcome-msg']//strong")).getText(), "Hello, Thuy Thanh Ng!");
+		
+		
+		//Tuong doi:
+		//String contactInfomationText =  driver.findElement(By.xpath("//div[@class='col-1']//div[@class='box-content']//p")).getText();
+		
+		//Assert.assertTrue(contactInfomationText.contains("Thuy Thanh Ng"));
+		//Assert.assertTrue(contactInfomationText.contains("thuy@mailinator.com"));
+		
+		
+		//Assert.assertTrue(driver.findElement(By.xpath("//div[@class='col-1']//div[@class='box-content']//p[contains(.,'Thuy Thanh Ng')]")).isDisplayed());
+		//Assert.assertTrue(driver.findElement(By.xpath("//div[@class='col-1']//div[@class='box-content']//p[contains(.,'thuy@mailinator.com')]")).isDisplayed());
+		
 	}
 
 	@Test
-	public void TC_05_Register_To_System() {
+	public void TC_06_Register_To_System() {
 
 	}
+	
+	@Test
+	public void TC_07_Register_To_System() {
+
+	}
+
 
 	@AfterClass
 	public void afterClass() {
