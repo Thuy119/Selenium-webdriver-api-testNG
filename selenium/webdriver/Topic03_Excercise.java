@@ -32,6 +32,8 @@ public class Topic03_Excercise {
 
 		String errorEmailMessage = driver.findElement(By.id("advice-required-entry-email")).getText();
 		Assert.assertEquals(errorEmailMessage, "This is a required field.");
+        // Gan tuc tiep, ko can khai bao bien
+		//Assert.assertEquals(driver.findElement(By.id("advice-required-entry-email")), "This is a required field.");
 		String errorPasswordMessage = driver.findElement(By.id("advice-required-entry-pass")).getText();
 		Assert.assertEquals(errorPasswordMessage, "This is a required field.");
 
@@ -134,8 +136,9 @@ public class Topic03_Excercise {
 		driver.findElement(By.xpath("//a[@title='Log Out']")).click();
 		
 		
-		
-		
+		Assert.assertTrue(driver.findElement(By.cssSelector("img[src$='logo.png']")).isDisplayed());
+	
+			
 			
         
 	}

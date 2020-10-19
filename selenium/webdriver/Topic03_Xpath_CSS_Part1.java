@@ -1,5 +1,6 @@
 package webdriver;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -144,9 +145,9 @@ public class Topic03_Xpath_CSS_Part1 {
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
 		driver.findElement(By.xpath("//a[@title='Create an Account']")).click();
 
-		String firstname = "Tom";
-		String lastname = "Jerry";
-		String email = "tomjerry123@mailinator.com";
+		String firstname = "Tony";
+		String lastname = "Six";
+		String email = "Tonysix" + randomNumber() +"@mailinator.com";
 		
 		
 		driver.findElement(By.id("firstname")).sendKeys(firstname);
@@ -171,7 +172,6 @@ public class Topic03_Xpath_CSS_Part1 {
 		driver.findElement(By.xpath("//a[@title='Log Out']")).click();
 		
 		
-		
 //		driver.findElement(By.id("firstname")).sendKeys("QApro");
 //		driver.findElement(By.id("lastname")).sendKeys("Test");
 //		driver.findElement(By.id("email_address")).sendKeys("qaproteam@mailinator.com");
@@ -190,6 +190,13 @@ public class Topic03_Xpath_CSS_Part1 {
 //		
 
 	}
+	
+	public int randomNumber() {
+		Random rand = new Random();
+		return rand.nextInt(999999);
+		
+	}
+	
 
 	@Test
 	public void TC_07_Register_To_System() {

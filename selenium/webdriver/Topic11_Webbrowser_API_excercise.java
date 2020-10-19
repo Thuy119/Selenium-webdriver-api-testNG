@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic03_Webbrowser_API_excercise {
+public class Topic11_Webbrowser_API_excercise {
 	WebDriver driver;
 
 	@BeforeClass
@@ -75,7 +75,6 @@ public class Topic03_Webbrowser_API_excercise {
 			pageSource = driver.getPageSource();
 			
 			Assert.assertTrue(pageSource.contains("Create an Account"));
-			
 			
 		}
 		
