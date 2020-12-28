@@ -52,31 +52,30 @@ public class Topic10_User_Interaction_Part1 {
 	}
 	
 	
-
+	@Test
 	public void TC_02_Hover_Mouse1() {
 		driver.get("https://jqueryui.com/resources/demos/tooltip/default.html");
 		action.moveToElement(driver.findElement(By.xpath("//input[@id='age']"))).perform();
-		sleepInSecond(1);
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='ui-tooltip-content']")).getText(), "We ask for your age only for statistical purposes.");
+		sleepInSecond(2);
 		
-	
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='ui-tooltip-content']")).getText(),"We ask for your age only for statistical purposes.");
+		
 	}
 
-
+	@Test
 	public void TC_03_Hover_Mouse2() {
 		driver.get("https://hn.telio.vn/");
-		
 		action.moveToElement(driver.findElement(By.xpath("//nav[@class='navigation cdz-fix-left']//span[text()='Đồ uống']"))).perform();
+		sleepInSecond(2);
 		
 		action.click(driver.findElement(By.xpath("//nav[@class='navigation cdz-fix-left']//a[text()='Bia']"))).perform();
 		
-		Assert.assertEquals(driver.findElement(By.xpath("//h1[@id='page-title-heading']/span")).getText(), "BIA");
-		
+		Assert.assertEquals(driver.findElement(By.xpath("//h1[@class='page-title']/span")).getText(), "BIA");
 		
 	}
 	
 	
-	public void TC_03_Click_And_Hold() {
+	public void TC_04_Click_And_Hold() {
 		driver.get("https://jqueryui.com/resources/demos/selectable/display-grid.html");
 		
 		//Tạo ra 1 list chứa all 12 numbers
@@ -134,16 +133,14 @@ public class Topic10_User_Interaction_Part1 {
 	@Test
 	public void TC_05_Double_Click() {
 		driver.get("https://automationfc.github.io/basic-form/index.html");
-		WebElement doubleButton = driver.findElement(By.xpath("//button[text()='Double click me']"));
-		action.doubleClick(doubleButton).perform();
-		sleepInSecond(3);
 		
-		
-		Assert.assertTrue(driver.findElement(By.xpath("//p[@id='demo' and text()= 'Hello Automation Guys!']")).isDisplayed());
-		
-		
+	WebElement doubleButton = driver.findElement(By.xpath("//button[text()='Double click me']"));
+	action.doubleClick(doubleButton).perform();
+	sleepInSecond(3);
 	
-		
+	Assert.assertEquals(driver.findElement(By.xpath("//p[@id='demo']")).getText(), "Hello Automation Guys!");
+	//Assert.assertTrue(driver.findElement(By.xpath("//p[@id='demo' and text()='Hello Automation Guys!']")).isDisplayed());
+	
 	}
 	
 	@AfterClass
@@ -159,5 +156,5 @@ public class Topic10_User_Interaction_Part1 {
 		}
 		
 	}
-
+	
 }

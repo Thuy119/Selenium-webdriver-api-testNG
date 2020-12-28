@@ -73,7 +73,7 @@ public class Topic06_Textbox_TextArea {
 		driver.findElement(By.name("name")).sendKeys(name);
 		driver.findElement(By.id("dob")).sendKeys(dobInput);
 		driver.findElement(By.name("addr")).sendKeys(address);
-		driver.findElement(By.name("city")).sendKeys(city);
+		driver.findElement(By.name("cityfff")).sendKeys(city);
 		driver.findElement(By.name("state")).sendKeys(state);
 		driver.findElement(By.name("pinno")).sendKeys(pin);
 		driver.findElement(By.name("telephoneno")).sendKeys(phone);
